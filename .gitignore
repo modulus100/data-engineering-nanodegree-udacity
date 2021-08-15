@@ -1,15 +1,1 @@
-%! Author = aleksandrmadisson
-%! Date = 15.08.2021
-
-% Preamble
-\documentclass[11pt]{article}
-
-% Packages
-\usepackage{amsmath}
-
-% Document
-\begin{document}
-
-
-
-\end{document}
+.idea
