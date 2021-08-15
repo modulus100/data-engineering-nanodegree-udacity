@@ -1,27 +1,44 @@
 import os
 import glob
 import psycopg2
+import psycopg2.extras
 import pandas as pd
 from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Reads raw data from the data files to split artist and songs
+    corresponding tables
+    :param cur: Postgres cursor
+    :param filepath: A path to a file to process
+    :return: void
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
     # ideally should be added in batch, iterative approach is just for simplicity
-    for index, row in df.iterrows():
-        song_data = (row.song_id, row.title, row.artist_id, row.year, row.duration)
-        # insert song record
-        cur.execute(song_table_insert, song_data)
+    # not sure if it's a good option to store data in array, just testing batch insert
+    songs = []
+    artists = []
 
-        artist_data = (row.artist_id, row.artist_name, row.artist_location,
-                       row.artist_latitude, row.artist_longitude)
-        # insert artist record
-        cur.execute(artist_table_insert, artist_data)
+    for index, row in df.iterrows():
+        songs.append((row.song_id, row.title, row.artist_id, row.year, row.duration))
+        artists.append((row.artist_id, row.artist_name, row.artist_location,
+                       row.artist_latitude, row.artist_longitude))
+
+    psycopg2.extras.execute_batch(cur, song_table_insert, songs)
+    psycopg2.extras.execute_batch(cur, artist_table_insert, artists)
 
 
 def process_log_file(cur, filepath):
+    """
+    This function is responsible for splitting raw log data and saving it
+    in different postgres tables
+    :param cur: Postgres cursor
+    :param filepath: A path to a file to process
+    :return: void
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -71,6 +88,15 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    Handles the rat data files and inserts the data into postgres
+
+    :param cur: Postgres cursor
+    :param conn: Postgres connection
+    :param filepath: A path to a file to process
+    :param func: function handler is responsible for the data insertion
+    :return: void
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
