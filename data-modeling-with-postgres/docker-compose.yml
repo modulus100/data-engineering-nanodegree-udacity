@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    environment:
+      - POSTGRES_DB=sparkifydb
+      - POSTGRES_USER=student
+      - POSTGRES_PASSWORD=student
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
