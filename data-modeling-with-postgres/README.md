@@ -23,7 +23,7 @@ Please make you got installed **Python 3**, **Docker** and **Docker Compose**.
 To run scripts you have to have the following packages: **psycopg2**, **pandas**.
 
 ## Run Scripts
-Run the database first and wait util it's ready to receive connections
+Run the database first and wait util it's ready to receive connections  
 `
 docker-compose up --build
 `  
