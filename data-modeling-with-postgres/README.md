@@ -26,14 +26,14 @@ To run scripts you have to have the following packages: **psycopg2**, **pandas**
 Run the database first and wait util it's ready to receive connections
 `
 docker-compose up --build
-`
-Now you should be able to create tables and run the etl process
+`  
+Now you should be able to create tables and run the etl process  
 `
 python3 create_tables.py
-`
+`  
 `
 python3 etl.py
-`
+`  
 
 ## Datasets
 Log data example
