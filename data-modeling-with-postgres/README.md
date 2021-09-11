@@ -80,4 +80,6 @@ Song data example
 Json logs and Song data have been transformed into the following star schema.
 Here down below the Songplays is a fact table and rest of them are dimension tables.
 
-![alt text](db_schema.png)
+![alt text](db_schema_2.png)
+
+## ETL
