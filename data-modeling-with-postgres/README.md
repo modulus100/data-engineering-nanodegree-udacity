@@ -22,20 +22,9 @@ data from files in two local directories into these tables in Postgres using Pyt
 Please make you got installed **Python 3**, **Docker** and **Docker Compose**.  
 To run scripts you have to have the following packages: **psycopg2**, **pandas**.
 
-## Run Scripts
-Run the database first and wait util it's ready to receive connections  
-`
-docker-compose up --build
-`  
-Now you should be able to create tables and run the etl process  
-`
-python3 create_tables.py
-`  
-`
-python3 etl.py
-`  
-
 ## Datasets
+Dataset is available from http://millionsongdataset.com/
+
 Log data example
 ```
 {
@@ -83,3 +72,14 @@ Here down below the Songplays is a fact table and rest of them are dimension tab
 ![alt text](db_schema_2.png)
 
 ## ETL
+Run the database first and wait util it's ready to receive connections  
+```
+docker-compose up --build
+```
+Now you should be able to create tables and run the etl process  
+```
+python3 create_tables.py
+``` 
+```
+python3 etl.py
+```
