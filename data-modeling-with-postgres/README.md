@@ -72,6 +72,11 @@ Here down below the Songplays is a fact table and rest of them are dimension tab
 ![alt text](db_schema_2.png)
 
 ## ETL
+### What it does
+This **ETL** reads and parsers the data from json files and inserts it
+into new optimised Postgres database schema for further data analysis.
+
+### How to run
 Run the database first and wait util it's ready to receive connections  
 ```
 docker-compose up --build
@@ -83,3 +88,13 @@ python3 create_tables.py
 ```
 python3 etl.py
 ```
+
+## Project files
+**data** - contains json logs dataset and the Million Song Dataset in json.  
+**docker-compose.yml** - instruction set for the docker to run local database.  
+**etl.ipynb** - Jupyter Notebook from which you can test and run ETL  
+**etl.py** - python script which does ETL  
+**init.sql** - gets executed by Postgres during initialization  
+**requirements.txt** - list of Python dependencies  
+**sql_queries.sql** - queries which are used to create the schema and insert the data  
+**test.sql** - Jupyter Notebook to test your ETL results
