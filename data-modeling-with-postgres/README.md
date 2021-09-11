@@ -37,7 +37,7 @@ python3 etl.py
 
 ## Datasets
 Log data example
-`
+```
 {
    "artist":null,
    "auth":"Logged In",
@@ -58,10 +58,10 @@ Log data example
    "userAgent":"\"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"",
    "user_id":"39"
 }
-`
+```
 
 Song data example
-`
+```
 {
    "num_songs":1,
    "artist_id":"ARD7TVE1187B99BFB1",
@@ -74,7 +74,7 @@ Song data example
    "duration":218.93179,
    "year":0
 }
-`
+```
 
 ## Database schema
 Json logs and Song data have been transformed into the following star schema.
