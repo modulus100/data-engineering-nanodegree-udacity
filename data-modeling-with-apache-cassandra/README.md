@@ -4,3 +4,9 @@ and user activity on their new music streaming app. The analysis team is particu
 interested in understanding what songs users are listening to. 
 Currently, there is no easy way to query the data to generate the results, 
 since the data reside in a directory of CSV files on user activity on the app.
+
+### Setup
+Run docker with cassandra first before running the notebook.
+```
+docker-compose up --build
+```
