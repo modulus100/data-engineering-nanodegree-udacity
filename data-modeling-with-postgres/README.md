@@ -12,12 +12,6 @@ and ETL pipeline for this analysis. You'll be able to test your database and ETL
 by running queries given to you by the analytics team from Sparkify and compare your results 
 with their expected results.
 
-### Project Description
-In this project, you'll apply what you've learned on data modeling with Postgres and build 
-an ETL pipeline using Python. To complete the project, you will need to define fact and dimension
-tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers 
-data from files in two local directories into these tables in Postgres using Python and SQL.
-
 ## Dependencies
 Please make you got installed **Python 3**, **Docker** and **Docker Compose**.  
 To run scripts you have to have the following packages: **psycopg2**, **pandas**.
